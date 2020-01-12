@@ -1,12 +1,15 @@
 
+import { Router } from 'express';
+
+const usuarioRoutes = Router();// enrutador
+
 
 
 import { Request, Response } from 'express'
 import Usuario from '../models/usuario.models';
-import { version } from 'mongoose';
 
 
-export const PostUsuario = (req: Request, res: Response) => {
+usuarioRoutes.post('/', (req: Request, res: Response) => {
 
     let body = req.body;
 
@@ -28,9 +31,9 @@ export const PostUsuario = (req: Request, res: Response) => {
             usuario: usuarioGuardado
         });
     });
-}
+});
 
-export const GetUsuario = (req: Request, res: Response) => {
+usuarioRoutes.get('/', (req: Request, res: Response) => {
 
     Usuario.find({}, (err, usuarios) => {
         if (err) {
@@ -45,4 +48,5 @@ export const GetUsuario = (req: Request, res: Response) => {
             usuarios: usuarios
         });
     });
-}
+});
+export default usuarioRoutes;

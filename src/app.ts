@@ -2,7 +2,6 @@ import express from 'express';
 
 import morgan from 'morgan';
 
-import indexRoutes from './routes/index.routes';
 
 // import path from 'path';
 
@@ -17,8 +16,11 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//importar las rutas
+import rutaUsuario from './routes/usuario.routes';
+
 //routes
-app.use('/api', indexRoutes);
+app.use('/api/usuario', rutaUsuario);
 
 // configuracion de carpeta publica para subir archivos
 // app.use('/uploads', express.static(path.resolve('uploads')));
