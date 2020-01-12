@@ -3,9 +3,10 @@
 
 import { Request, Response } from 'express'
 import Usuario from '../models/usuario.models';
+import { version } from 'mongoose';
 
 
-export const PostUsuario = async (req: Request, res: Response) => {
+export const PostUsuario = (req: Request, res: Response) => {
 
     let body = req.body;
 
@@ -29,7 +30,7 @@ export const PostUsuario = async (req: Request, res: Response) => {
     });
 }
 
-export const GetUsuario = async (req: Request, res: Response) => {
+export const GetUsuario = (req: Request, res: Response) => {
 
     Usuario.find({}, (err, usuarios) => {
         if (err) {
